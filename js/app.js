@@ -15,16 +15,11 @@
     return (response.ok) ? response.json() : Promise.reject(response);
   };
 
-  var rotateQuotes = function(quote) {
-    quotes.shift();
-    quotes.push(quote);
-  }
-
   var checkQuote = function(data) {
     if (quotes.indexOf(data[0]) === -1) {
         quotes.push(data[0]);
-      if (quotes.length < 5) {
-        rotateQuotes(data[0]);
+      if (quotes.length > 50) {
+        quotes.shift();
       }
     } else {
       getQuote();
