@@ -2,10 +2,14 @@
 
   "use strict";
 
+  // Variables
+
   var url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes',
       quotes = [],
       blockquote = d.querySelector('blockquote'),
       button = d.querySelector('button');
+
+  // Functions
 
   var getJSON = function(response) {
     return (response.ok) ? response.json() : Promise.reject(response);
@@ -43,6 +47,8 @@
       .then(renderQuote)
       .catch(renderError);
   };
+
+  // Run
 
   getQuote();
 
